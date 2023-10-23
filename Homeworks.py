@@ -129,3 +129,79 @@ numbers_list = [1, 2, 3, 4, 5]
 degree = 2
 result_list = calculate_degrees(numbers_list, degree)
 print(f"The result list is: {result_list}")
+
+# Homework 8.
+
+# Task 1. Lомашній номер телефону (тільки цифри та довжина номера)
+
+import re
+
+def validate_home_phone_number(phone_number):
+
+    pattern = r'^\d{8,12}$'
+
+    if re.match(pattern, phone_number):
+        return True
+    else:
+        return False
+
+
+# Task 2. Мобільний номер телефону (тільки цифри, можлива наявність плюса, довжина номера)
+
+import re
+
+def validate_mobile_phone_number(phone_number):
+
+    pattern = r'^\+?\d{12,18}$'
+
+    if re.match(pattern, phone_number):
+        return True
+    else:
+        return False
+
+
+# Task 3. email (наявність @, домену: gmail.com наприклад, мінімальна довжина та максимальна на ваш вибір)
+
+import re
+
+def validate_email(email):
+
+    pattern = r'^[a-zA-Z0-9_.+-]{1,20}@[a-zA-Z0-9-]{2,5}\.[a-zA-Z]{2,5}$'
+
+    if re.match(pattern, email):
+        return True
+    else:
+        return False
+
+
+#Task 4. ПІБ клієнта (3 слова, мінімальна довжина 2 символи, максимальна довжина 20)
+
+import re
+
+def validate_name(name):
+
+    pattern = r'^[a-zA-Z]{2,20}$'
+
+    if re.match(pattern, name):
+        return True
+    else:
+        return False
+
+def validate_surname(surname):
+
+    pattern = r'^[a-zA-Z]{2,20}$'
+
+    if re.match(pattern, surname):
+        return True
+    else:
+        return False
+
+
+def validate_parental_name(parental_name):
+
+    pattern = r'^[a-zA-Z]{2,20}$'
+
+    if re.match(pattern, parental_name):
+        return True
+    else:
+        return False
