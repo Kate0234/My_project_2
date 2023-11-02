@@ -211,30 +211,141 @@ import re
 #Task 1.Даний текстовий файл. Необхідно створити новий файл, який потрібно переписати з першого файлу всі слова,
 # що складаються не менше ніж з семи літер.
 
-with open('input.txt', 'w') as file:
-    file.write("Today marks World Vegan Day, and as such our two charts today are tackling the topic. "
-               "Up first, we reveal the cities with the most vegan restaurants per 100,000 inhabitants. "
-               "Our second feature reveals Americans' favorite fake meat products.\n")
+# with open('input.txt', 'w') as file:
+#     file.write("Today marks World Vegan Day, and as such our two charts today are tackling the topic. "
+#                "Up first, we reveal the cities with the most vegan restaurants per 100,000 inhabitants. "
+#                "Our second feature reveals Americans' favorite fake meat products.\n")
+#
+# with open('input.txt', 'r') as file:
+#     text = file.read()
+#     words = text.split()
+#
+# long_words = [word for word in words if len(word) >= 7]
 
-with open('input.txt', 'r') as file:
-    text = file.read()
-    words = text.split()
+# with open('output.txt', 'w') as file:
+#     file.write("\n".join(long_words))
+#
+# # Task 2. Даний текстовий файл. Підрахувати кількість слів у ньому.
+#
+# with open('user_input.txt', 'w') as file:
+#     pass
+#
+# user_input = input("Please enter some text: ")
+#
+# with open('user_input.txt', 'w') as file:
+#     file.write(user_input)
 
-long_words = [word for word in words if len(word) >= 7]
+# word_count = len(user_input.split())
+#
+# print(f"The number of words in the text is: {word_count}")
 
-with open('output.txt', 'w') as file:
-    file.write("\n".join(long_words))
 
-# Task 2. Даний текстовий файл. Підрахувати кількість слів у ньому.
+# Hometask 10
 
-with open('user_input.txt', 'w') as file:
-    pass
+class Academy:
+    def __init__(self, name):
+        self.name = name
+        self.buildings = []
 
-user_input = input("Please enter some text: ")
+    def add_building(self, building):
+        self.buildings.append(building)
 
-with open('user_input.txt', 'w') as file:
-    file.write(user_input)
 
-word_count = len(user_input.split())
+class Building:
+    def __init__(self, name):
+        self.name = name
+        self.classrooms = []
 
-print(f"The number of words in the text is: {word_count}")
+    def add_classroom(self, classroom):
+        self.classrooms.append(classroom)
+
+
+class Classroom:
+    def __init__(self, number):
+        self.number = number
+        self.students = []
+
+    def enroll_student(self, student):
+        self.students.append(student)
+
+
+class Teacher:
+    def __init__(self, name):
+        self.name = name
+
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+
+class Curriculum:
+    def __init__(self, name):
+        self.name = name
+
+
+class Lesson:
+    def __init__(self, subject, teacher):
+        self.subject = subject
+        self.teacher = teacher
+
+
+class Subject:
+    def __init__(self, name):
+        self.name = name
+
+
+class Mark:
+    def __init__(self, value):
+        self.value = value
+
+if __name__ == "__main__":
+    academy = Academy("My Academy")
+
+    building1 = Building("Main Building")
+    building2 = Building("Left Building")
+
+    academy.add_building(building1)
+    academy.add_building(building2)
+
+    classroom1 = Classroom("201a")
+    classroom2 = Classroom("405c")
+
+    building1.add_classroom(classroom1)
+    building2.add_classroom(classroom2)
+
+    student1 = Student("Kristian Meller")
+    student2 = Student("Jane Doe")
+
+    classroom1.enroll_student(student1)
+    classroom2.enroll_student(student2)
+
+    teacher = Teacher("Mr. Smith")
+
+    curriculum = Curriculum("Mathematics")
+
+    subject = Subject("Algebra")
+
+    lesson = Lesson(subject, teacher)
+
+    mark = Mark(11)
+
+    print(f"Academy: {academy.name}")
+    print(f"Buildings: {[building.name for building in academy.buildings]}")
+    print(f"Classrooms in {building1.name}: {[classroom.number for classroom in building1.classrooms]}")
+    print(f"Classrooms in {building2.name}: {[classroom.number for classroom in building2.classrooms]}")
+    print(f"Students in Classroom 101: {[student.name for student in classroom1.students]}")
+    print(f"Students in Classroom 102: {[student.name for student in classroom2.students]}")
+    print(f"Teacher: {teacher.name}")
+    print(f"Curriculum: {curriculum.name}")
+    print(f"Subject: {subject.name}")
+    print(f"Lesson: {lesson.subject.name} with {lesson.teacher.name}")
+    print(f"Mark: {mark.value}")
+
+
+
+
+
+
+
+
